@@ -1,0 +1,81 @@
+Copy Shop Program
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Coffee_shop_project
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str = string.Empty;
+            int ch = 0;
+            int smallQuantity = 0, mediumQuantity = 0, largeQuantity = 0;
+            int smallCoffeeBill = 0, mediumCoffeeBill = 0, largeCoffeeBill = 0;
+            int TotalBill = 0;
+
+            Console.WriteLine("Welcome to Taj Coffee Shop");
+
+            do
+            {
+                Console.WriteLine("1.Small Coffee - 10 Rs\n2.Medium Coffee - 20 Rs\n3.Large Coffee - 30 Rs");
+                Console.WriteLine("Sir please select your Coffee");
+
+                if (int.TryParse(Console.ReadLine(), out ch))
+                {
+                    Console.WriteLine("You  Selected {0}", ch);
+
+                    switch (ch)
+                    {
+                        case 1:
+                            Console.WriteLine("Please Enter your Small Coffee Quantity");
+                            smallQuantity = Convert.ToInt32(Console.ReadLine());
+                            smallCoffeeBill = smallQuantity * 10;
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Please Enter your Medium Coffee Quantity");
+                            mediumQuantity = Convert.ToInt32(Console.ReadLine());
+                            mediumCoffeeBill = mediumQuantity * 20;
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Please Enter your Large Coffee Quantity");
+                            largeQuantity = Convert.ToInt32(Console.ReadLine());
+                            largeCoffeeBill = largeQuantity * 30;
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid Choice");
+                            break;
+
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter valid Choice");
+                }
+                Console.WriteLine("Do you want to order more item?");
+                str = Console.ReadLine();
+
+            } while (str.ToUpper() == "Y" || str.ToUpper() == "YES");
+
+            Console.WriteLine("Small Coffee {0} * 10 = {1} ", smallQuantity, smallCoffeeBill);
+            Console.WriteLine("Medium Coffee {0} * 20 = {1} ", mediumQuantity, mediumCoffeeBill);
+            Console.WriteLine("Large Coffee {0} * 30 = {1} ", largeQuantity, largeCoffeeBill);
+
+            TotalBill = smallCoffeeBill + mediumCoffeeBill + largeCoffeeBill;
+            Console.WriteLine("Your total Bill is {0}", TotalBill);
+            Console.WriteLine("Thank you for Visit");
+            Console.WriteLine("Please Visit Again if you like");
+
+            Console.ReadLine();
+
+        }
+    }
+}
